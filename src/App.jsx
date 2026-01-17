@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollSmoother, ScrollTrigger, SplitText } from 'gsap/all'
 import AccordionPart from './sections/AccordionPart'
 import Message from './sections/Message'
+import Pictures from './sections/Pictures'
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother)
 
@@ -16,6 +17,7 @@ const App = () => {
       <Home/>
       <AccordionPart/>
       <Message/>
+      <Pictures/>
     </>
   )
 }

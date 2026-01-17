@@ -14,6 +14,7 @@ const App = () => {
       <Navbar/>
       <Home/>
       <AccordionPart/>
+      <div className="h-screen"></div>
     </>
   )
 }

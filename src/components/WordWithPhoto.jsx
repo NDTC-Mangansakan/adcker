@@ -7,9 +7,9 @@ const WordWithPhoto = ({ word, img, imgAndWordDirection, titleAndContentDirectio
 
     const [isOpenAcc, setIsOpenAcc] = useState(false)
     const paraAccRef = useRef()
-    const accBtn = useRef()
     const accIcon = useRef()
     const tl = useRef()
+    const wordWithPhotoRef = useRef()
 
     useGSAP(() => {
         const paraHeight = paraAccRef.current.offsetHeight
@@ -17,6 +17,15 @@ const WordWithPhoto = ({ word, img, imgAndWordDirection, titleAndContentDirectio
         tl.current = gsap.timeline({ paused: true })
             .to(paraAccRef.current, { maxHeight: paraHeight + 20, autoAlpha: 1, ease: 'expo.inOut' })
             .to(accIcon.current, { rotateZ: 180, ease: 'expo.inOut' }, '<')
+
+        gsap.from(wordWithPhotoRef.current, {
+            scrollTrigger: {
+                trigger: wordWithPhotoRef.current,
+                start: 'top 70%',
+            },
+            yPercent: 100,
+            ease: 'expo.inOut'
+        })    
     }, [])
 
     const toggleAcc = () => {
@@ -31,8 +40,8 @@ const WordWithPhoto = ({ word, img, imgAndWordDirection, titleAndContentDirectio
 
 
     return (
-        <div className={`flex flex-col ${titleAndContentDirection} justify-center items-center font-bold text-[calc(.75em+12vw)] uppercase leading-[1.1]`}>
-            <div ref={accBtn} className={`flex ${imgAndWordDirection} gap-x-3 items-center justify-center cursor-pointer relative`} onClick={toggleAcc}>
+        <div className={`flex flex-col ${titleAndContentDirection} justify-center items-center font-bold text-[calc(.75em+12vw)] uppercase leading-[1.1] overflow-hidden`}>
+            <div ref={wordWithPhotoRef} className={`flex ${imgAndWordDirection} gap-x-3 items-center justify-center cursor-pointer relative`} onClick={toggleAcc}>
                 <span>{word}</span>
                 <div className='flex items-center'>
                     <span className="-translate-y-1 lg:-translate-y-3">(</span>

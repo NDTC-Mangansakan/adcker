@@ -5,6 +5,7 @@ import Home from './sections/Home'
 import gsap from 'gsap'
 import { ScrollSmoother, ScrollTrigger, SplitText } from 'gsap/all'
 import AccordionPart from './sections/AccordionPart'
+import Message from './sections/Message'
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother)
 
@@ -14,7 +15,7 @@ const App = () => {
       <Navbar/>
       <Home/>
       <AccordionPart/>
-      <div className="h-screen"></div>
+      <Message/>
     </>
   )
 }

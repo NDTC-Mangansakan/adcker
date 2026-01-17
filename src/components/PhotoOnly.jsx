@@ -1,22 +1,33 @@
 import { useGSAP } from "@gsap/react"
 import { RiArrowLeftLongLine, RiArrowUpLongLine } from "@remixicon/react"
 import gsap from "gsap"
+import { SplitText } from "gsap/all"
 import { useRef, useState } from "react"
 
 const PhotoOnly = ({ img }) => {
 
     const [isOpenAcc, setIsOpenAcc] = useState(false)
     const paraAccRef = useRef()
-    const accBtn = useRef()
     const accIcon = useRef()
     const tl = useRef()
+    const photoOnlyRef = useRef()
 
     useGSAP(() => {
+        
         const paraHeight = paraAccRef.current.offsetHeight
         gsap.set(paraAccRef.current, { maxHeight: 0, autoAlpha: 0 })
         tl.current = gsap.timeline({ paused: true })
             .to(paraAccRef.current, { maxHeight: paraHeight + 20, autoAlpha: 1, ease: 'expo.inOut' })
             .to(accIcon.current, { rotateZ: 180, ease: 'expo.inOut' }, '<')
+        gsap.from(photoOnlyRef.current, {
+            scrollTrigger: {
+                trigger: photoOnlyRef.current,
+                start: 'top 70%'
+            },
+            yPercent: 100,
+            ease: 'expo.inOut'
+        })    
+           
     }, [])
 
     const toggleAcc = () => {
@@ -29,8 +40,8 @@ const PhotoOnly = ({ img }) => {
         setIsOpenAcc(prev => !prev)
     }
     return (
-        <div className="flex flex-col-reverse items-center justify-center font-bold text-[calc(.75em+12vw)] leading-[1.1]">
-            <div className="relative">
+        <div className="flex flex-col-reverse items-center justify-center font-bold text-[calc(.75em+12vw)] leading-[1.1] overflow-hidden">
+            <div ref={photoOnlyRef} className="relative">
                 <div className="flex items-center cursor-pointer " onClick={toggleAcc}>
                     <span className="-translate-y-1 lg:-translate-y-3">(</span>
                     <img src={img} alt="" className="w-[calc(.75em+1vw)] aspect-square" />

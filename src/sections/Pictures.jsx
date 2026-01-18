@@ -8,7 +8,7 @@ const imgs = [
 ]
 const Pictures = () => {
     return (
-        <div className='py-30 px-10 flex flex-col lg:flex-row items-center justify-center gap-20'>
+        <div className='pb-30 px-10 flex flex-col lg:flex-row items-center justify-center gap-15'>
             {
                 imgs.map((img, i) => (
                     <div key={img} className='w-full max-w-60 lg:max-w-none lg:w-1/5 aspect-square flex flex-col'>

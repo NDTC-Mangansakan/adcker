@@ -7,17 +7,20 @@ import { ScrollSmoother, ScrollTrigger, SplitText } from 'gsap/all'
 import AccordionPart from './sections/AccordionPart'
 import Message from './sections/Message'
 import Pictures from './sections/Pictures'
+import Footer from './sections/Footer'
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother)
 
 const App = () => {
   return (
     <>
-      <Navbar/>
-      <Home/>
-      <AccordionPart/>
-      <Message/>
-      <Pictures/>
+      <Navbar />
+      <Home />
+      <AccordionPart />
+      <Message bgColor='white'/>
+      <Pictures />
+      <Message bgColor='black'/>
+      <Footer/>
     </>
   )
 }

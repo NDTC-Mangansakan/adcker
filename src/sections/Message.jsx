@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
 import React, { useRef } from 'react'
 
-const Message = () => {
+const Message = ({ bgColor }) => {
 
     const messageRef = useRef()
 
@@ -22,12 +22,14 @@ const Message = () => {
         })
     }, [])
     return (
-        <div className='py-30 px-5 sm:px-20 flex items-center justify-center'>
+        <div className={`py-30 px-5 sm:px-20 flex items-center justify-center bg-${bgColor} ${bgColor === 'black' && 'text-white'}`}>
             <div ref={messageRef} className="text-center tracking-tighter font-bold text-[calc(.75em+2vw)] font-mono leading-[150%]">
                 <span>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet corporis, mollitia numquam quas aliquam officiis eos minima? Quidem recusandae nisi ratione architecto quod suscipit quisquam?
                 </span><br />
-                <a href='#readMore' className="font-normal underline text-[calc(.1em+1vw)]">Read More!</a>
+                <a href={bgColor === 'black' ? '#contact' : '#read-more'} className="font-normal underline text-[calc(.1em+1vw)]">
+                    {bgColor === 'black' ? `Don't be shy, contact us now` : 'Read more!'}
+                </a>
             </div>
         </div>
     )

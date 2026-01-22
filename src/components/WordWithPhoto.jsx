@@ -15,13 +15,13 @@ const WordWithPhoto = ({ word, img, imgAndWordDirection, titleAndContentDirectio
         const paraHeight = paraAccRef.current.offsetHeight
         gsap.set(paraAccRef.current, { maxHeight: 0, autoAlpha: 0 })
         tl.current = gsap.timeline({ paused: true })
-            .to(paraAccRef.current, { maxHeight: paraHeight + 20, autoAlpha: 1, ease: 'expo.inOut' })
+            .to(paraAccRef.current, { maxHeight: paraHeight + 30, autoAlpha: 1, ease: 'expo.inOut' })
             .to(accIcon.current, { rotateZ: 180, ease: 'expo.inOut' }, '<')
 
         gsap.from(wordWithPhotoRef.current, {
             scrollTrigger: {
                 trigger: wordWithPhotoRef.current,
-                start: 'top 70%',
+                start: 'top 90%',
             },
             yPercent: 100,
             ease: 'expo.inOut'

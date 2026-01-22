@@ -20,7 +20,7 @@ const Home = () => {
                     trigger: '.vid-con',
                     start: 'top bottom',
                     end: `bottom bottom`,
-                    scrub: 1.5,
+                    scrub: true,
                 },
                 scale: 1
             })

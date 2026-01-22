@@ -22,7 +22,7 @@ const PhotoOnly = ({ img }) => {
         gsap.from(photoOnlyRef.current, {
             scrollTrigger: {
                 trigger: photoOnlyRef.current,
-                start: 'top 70%'
+                start: 'top 90%'
             },
             yPercent: 100,
             ease: 'expo.inOut'

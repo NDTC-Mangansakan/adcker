@@ -13,7 +13,7 @@ const Message = ({ bgColor }) => {
         gsap.from(textSplit.lines, {
             scrollTrigger: {
                 trigger: messageRef.current,
-                start: 'top center'
+                start: 'top 90%'
             },
             yPercent: 100,
             autoAlpha: 0,
@@ -22,12 +22,12 @@ const Message = ({ bgColor }) => {
         })
     }, [])
     return (
-        <div className={`py-30 px-5 sm:px-20 flex items-center justify-center bg-${bgColor} ${bgColor === 'black' && 'text-white'}`}>
+        <div className={`py-10 lg:py-30 px-5 sm:px-10 flex items-center justify-center bg-${bgColor} ${bgColor === 'black' && 'text-white'}`}>
             <div ref={messageRef} className="text-center tracking-tighter font-bold text-[calc(.75em+2vw)] font-mono leading-[150%]">
                 <span>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet corporis, mollitia numquam quas aliquam officiis eos minima? Quidem recusandae nisi ratione architecto quod suscipit quisquam?
                 </span><br />
-                <a href={bgColor === 'black' ? '#contact' : '#read-more'} className="font-normal underline text-[calc(.1em+1vw)]">
+                <a href={bgColor === 'black' ? '#contact' : '#read-more'} className=" font-normal underline text-[calc(.45em+1vw)]">
                     {bgColor === 'black' ? `Don't be shy, contact us now` : 'Read more!'}
                 </a>
             </div>
